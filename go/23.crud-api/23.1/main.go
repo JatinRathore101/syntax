@@ -42,6 +42,7 @@ func getUser(w http.ResponseWriter, r *http.Request) {
 	http.NotFound(w, r)
 }
 
+// handler routes GET /users and GET /users/{id}
 func handler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path == "/users" && r.Method == "GET" {
 		getUsers(w, r)

@@ -14,7 +14,7 @@ func main() {
 	numbers = append(numbers, 50, 60)
 	fmt.Println("After multi-append:", numbers)
 
-	// Join two slices using ... (spread operator)
+	// Merge two slices: ... unpacks the slice into individual arguments
 	more := []int{70, 80, 90}
 	numbers = append(numbers, more...)
 	fmt.Println("After joining:", numbers)

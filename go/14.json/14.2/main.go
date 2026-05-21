@@ -16,7 +16,10 @@ func main() {
 	// JSON array → slice of structs
 	jsonArray := `[{"id":1,"name":"A","email":"a@test.com"},{"id":2,"name":"B","email":"b@test.com"}]`
 	var users []User
-	json.Unmarshal([]byte(jsonArray), &users)
+	if err := json.Unmarshal([]byte(jsonArray), &users); err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
 	fmt.Println("Parsed array:", users)
 	fmt.Println("First user:", users[0].Name)
 
@@ -32,7 +35,10 @@ func main() {
 	}
 	postJSON := `{"title":"Go Basics","user":{"id":1,"name":"Jai"},"likes":10}`
 	var post Post
-	json.Unmarshal([]byte(postJSON), &post)
+	if err := json.Unmarshal([]byte(postJSON), &post); err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
 	fmt.Println("Post title:", post.Title)
 	fmt.Println("Author:", post.User.Name)
 }

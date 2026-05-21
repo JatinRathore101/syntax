@@ -39,8 +39,6 @@ func main() {
 		panic(err)
 	}
 	defer resp2.Body.Close()
-
-	body2, _ := io.ReadAll(resp2.Body)
+	io.Copy(io.Discard, resp2.Body) // drain body to allow connection reuse
 	fmt.Println("GET with headers status:", resp2.Status)
-	_ = body2
 }

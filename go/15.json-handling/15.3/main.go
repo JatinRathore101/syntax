@@ -16,7 +16,10 @@ func main() {
 	// JSON array → slice of structs
 	usersJSON := `[{"id":1,"name":"A"},{"id":2,"name":"B"}]`
 	var users []User
-	json.Unmarshal([]byte(usersJSON), &users)
+	if err := json.Unmarshal([]byte(usersJSON), &users); err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
 	fmt.Println("Decoded array:", users)
 	fmt.Println("First user:", users[0].Name)
 

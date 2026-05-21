@@ -64,6 +64,7 @@ func deleteUser(w http.ResponseWriter, r *http.Request) {
 	http.NotFound(w, r)
 }
 
+// handler routes POST /users and PUT/DELETE /users/{id}
 func handler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path == "/users" {
 		switch r.Method {
