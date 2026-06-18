@@ -1,5 +1,3 @@
-// Hello World - The starting point of every Java program
-
 public class Main {
     // Every Java program needs a main method - it's the entry point
     public static void main(String[] args) {
